@@ -12,7 +12,7 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    
+    @post_images = PostImage.exists
   end
 
   def show
