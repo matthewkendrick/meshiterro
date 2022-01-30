@@ -10,3 +10,24 @@
     <%= link_to "削除", post_image_path(@post_image), method: :delete %>
   <% end %>
 </div>
+
+<div class="">
+  <p>コメント件数 : <%= @post_image.post_comments.count %></p>
+  <% @post_image.post_comments.each do |post_comment| %>
+    <p><%= image_tag post_comment.user.get_profile_image("100x100") %></p>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+  <% end %>
+</div>
+<div class="">
+  <section>
+    <h1></h1>
+    <%= form_with model: [@post_image, @post_comment], local:true do |f| %>
+      <div class="comment-form">
+        <h4>comment</h4>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+      </div>
+      <%= f.submit '送信する' %>
+    <% end %>
+  </section>
+</div>
