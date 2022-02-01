@@ -1,13 +1,14 @@
 <%# user details %>
-<div class="">
-  <h3><%= @user.name %></h3>
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image("100x100") %>
-  <% if @user == User.find(params[:id]) %>
+  <% if @user.id == current_user.id %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
 </div>
 
 <%# post-index from each users %>
+<%= render 'post_images/list', post_images: @post_images %>
 <% @post_images.each do |post_image| %>
   <div class="">
     <%= link_to "", post_image_path(post_image.id) %>
