@@ -5,8 +5,9 @@ class PostImage < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   # shop_nameが存在しているかを確認するバリデーションを記述する
-
+  validates :shop_name, presence: true
   # imageが存在しているかを確認するバリデーションを記述する
+  validates :image, presence: true
 
   def get_image
     unless image.attached?
