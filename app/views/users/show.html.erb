@@ -9,3 +9,16 @@
 
 <%# post-index from each users %>
 <%= render 'post_images/list', post_images: @post_images %>
+<<<<<<< HEAD
+=======
+<% @post_images.each do |post_image| %>
+  <div class="">
+    <%= link_to "", post_image_path(post_image.id) %>
+    <%= image_tag post_image.get_image %>
+    <p>投稿ユーザー画像 : <%= image_tag post_image.user.get_profile_image("100x100") %></p>
+    <p>ショップ名 : <%= post_image.shop_name %></p>
+    <p>説明 : <%= post_image.caption %></p>
+    <p>ユーザーネーム : <%= post_image.user.name %></p>
+  </div>
+<% end %>
+>>>>>>> ed1d3bea5610ca14f6c58a98232c2a8d98eeb4b2
